@@ -7,7 +7,7 @@ interface FeedbackProps {
 }
 
 export const Feedback = ({ message, type, redirectTo }: FeedbackProps) => {
-    const feedbackBaseClassName = "absolute w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#afafafba] p-2 flex flex-col justify-center items-center gap-2";
+    const feedbackBaseClassName = "absolute w-full min-h-screen h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#afafafba] p-2 flex flex-col justify-center items-center gap-2";
     const errorClassName = "text-red-600";
     const successClassName = "text-green-600";
     const className = type === "error" ? `${feedbackBaseClassName} ${errorClassName}` : `${feedbackBaseClassName} ${successClassName}`;

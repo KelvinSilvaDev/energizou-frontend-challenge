@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ChangeEvent, useState } from "react";
 import getCep from "../services/viaCep";
 import api from "../services/api";
@@ -87,9 +88,9 @@ export function RegisterCompany() {
                 });
                 console.log(response.data);
             }
-        } catch (error) {
+        } catch (error:any) {
             setFeedback({
-                message: "Erro ao cadastrar empresa!",
+                message: error.response.data.error,
                 type: "error"
             });
             console.error(error);
@@ -168,11 +169,11 @@ export function RegisterCompany() {
                 </label>
                 <label className="flex flex-col text-sm" htmlFor="cep">
                     CEP
-                    <input className="border p-2" type="number" name="cep" id="cep" value={formatCep(formData.cep)} onChange={(e: ChangeEvent<HTMLInputElement>) => handleCepChange(e)} />
+                    <input className="border p-2" type="text" name="cep" id="cep" value={formatCep(formData.cep)} onChange={(e: ChangeEvent<HTMLInputElement>) => handleCepChange(e)} />
                 </label>
                 <label className="flex flex-col text-sm" htmlFor="cnpj">
                     CNPJ
-                    <input className="border p-2" type="number" name="cnpj" id="cnpj" value={formatCnpj(formData.cnpj)} onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                    <input className="border p-2" type="text" name="cnpj" id="cnpj" value={formatCnpj(formData.cnpj)} onChange={(e: ChangeEvent<HTMLInputElement>) => {
                         e.target.value = formatCnpj(e.target.value);
                         handleInputChange(e);
                     }} />
@@ -187,7 +188,7 @@ export function RegisterCompany() {
                 </label>
                 <label className="flex flex-col text-sm" htmlFor="phone">
                     Telefone
-                    <input className="border p-2" type="number" name="phone" id="phone" value={formatPhone(formData.phone)} onChange={(e: ChangeEvent<HTMLInputElement>) => handleInputChange(e)} />
+                    <input className="border p-2" type="text" name="phone" id="phone" value={formatPhone(formData.phone)} onChange={(e: ChangeEvent<HTMLInputElement>) => handleInputChange(e)} />
                 </label>
                 <label className="flex flex-col text-sm" htmlFor="email">
                     Email

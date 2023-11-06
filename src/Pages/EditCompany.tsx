@@ -17,7 +17,7 @@ export function EditCompanyPage() {
     }, [cnpj])
 
     return (
-        <div className="flex flex-col flex-grow h-full justify-evenly items-center gap-8">
+        <div className="flex flex-col flex-grow h-full justify-evenly items-center gap-8 mb-4">
             <h1 className=" text-4xl md:text-6xl my-4 md:my-12">Editar Empresa</h1>
             <div className="container shadow-2xl p-4 border rounded-md bg-white">
                 {!company && <p>Carregando...</p>}

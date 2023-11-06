@@ -102,7 +102,9 @@ export function EditCompany({ company }: { company: Company }) {
         setFormData({ ...formData, [name]: value });
     }
 
-    const fieldClass = "field flex flex-col gap-2 border";
+    const fieldClass = "field flex flex-col gap-2";
+
+    const inputClass = "border border-gray-300 rounded-md p-2"
 
 
 
@@ -118,6 +120,7 @@ export function EditCompany({ company }: { company: Company }) {
                     id="customerName"
                     onChange={handleInputChange}
                     value={formData.customerName}
+                    className={`${inputClass}`}
                 />
             </div>
             <label htmlFor="corporateName">Razão Social</label>
@@ -128,6 +131,7 @@ export function EditCompany({ company }: { company: Company }) {
                     id="corporateName"
                     onChange={handleInputChange}
                     value={formData.corporateName}
+                    className={`${inputClass}`}
                 />
             </div>
             <label htmlFor="cep">CEP</label>
@@ -138,6 +142,7 @@ export function EditCompany({ company }: { company: Company }) {
                     id="cep"
                     onChange={handleInputChange}
                     value={formData.cep}
+                    className={`${inputClass}`}
                 />
             </div>
             <label htmlFor="cnpj">CNPJ</label>
@@ -148,6 +153,7 @@ export function EditCompany({ company }: { company: Company }) {
                     id="cnpj"
                     onChange={handleInputChange}
                     value={formData.cnpj}
+                    className={`${inputClass}`}
                 />
             </div>
             <label htmlFor="address">Endereço</label>
@@ -158,6 +164,7 @@ export function EditCompany({ company }: { company: Company }) {
                     id="address"
                     onChange={handleInputChange}
                     value={formData.address}
+                    className={`${inputClass}`}
                 />
             </div>
             <label htmlFor="number">Número</label>
@@ -168,6 +175,7 @@ export function EditCompany({ company }: { company: Company }) {
                     id="number"
                     onChange={handleInputChange}
                     value={formData.number}
+                    className={`${inputClass}`}
                 />
             </div>
             <label htmlFor="phone">Telefone</label>
@@ -178,6 +186,7 @@ export function EditCompany({ company }: { company: Company }) {
                     id="phone"
                     onChange={handleInputChange}
                     value={formData.phone}
+                    className={`${inputClass}`}
                 />
             </div>
             <label htmlFor="email">E-mail</label>
@@ -188,6 +197,7 @@ export function EditCompany({ company }: { company: Company }) {
                     id="email"
                     onChange={handleInputChange}
                     value={formData.email}
+                    className={`${inputClass}`}
                 />
             </div>
             <label htmlFor="password">Senha</label>
@@ -198,6 +208,7 @@ export function EditCompany({ company }: { company: Company }) {
                     id="password"
                     onChange={handleInputChange}
                     value={formData.password}
+                    className={`${inputClass}`}
                 />
             </div>
             <label htmlFor="confirmPassword">Confirmar Senha</label>
@@ -207,13 +218,14 @@ export function EditCompany({ company }: { company: Company }) {
                     name="confirmPassword"
                     id="confirmPassword"
                     onChange={handleInputChange}
+                    className={`${inputClass}`}
                 />
                 {formData.passwordError && (
                     <div className="text-red-500 text-sm">{formData.passwordError}</div>
                 )}
             </div>
 
-            <button type="submit">Salvar</button>
+            <button type="submit" className="bg-blue-500 text-white mt-4 rounded-sm w-1/2 mx-auto">Salvar</button>
             <Feedback message={feedback.message} type={feedback.type} />
         </form>
     )
